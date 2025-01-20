@@ -2,14 +2,17 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-<h3 align="center">Smallest amount of items or Smallest package finder</h3>
+<h2 align="center">Smallest package/items Finder</h2>
 
   <p align="center">
     An awesome project to find the smallest amount of items or the smallest package to fit a given amount of items.
     <br />
     <br />
-    <a href="https://packer-web-iota.vercel.app/">View Demo/ Interact with Frontendo</a>
-   
+    <a href="https://packer-web-iota.vercel.app/">View Demo</a>
+     &middot;
+    <a href="https://packer-web-iota.vercel.app/">Frontend</a>
+     &middot;
+    <a href="https://fulfillment-app-2ndro.ondigitalocean.app/">Backend API</a>
   </p>
 </div>
 
@@ -23,6 +26,9 @@
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
+      </ul>
+      <ul>
+        <li><a href="#rest-api-endpoints">API Endpoints</a></li>
       </ul>
     </li>
     <li>
@@ -67,6 +73,51 @@ The project is divided into two parts:
 * Golang
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Rest API Endpoints
+The backend exposes the following REST API endpoints:
+
+### Default Packs
+`Request:`
+```curl
+curl --location 'https://fulfillment-app-2ndro.ondigitalocean.app/default-packs'
+```
+
+`Response:`
+```json
+{
+    "packs": [
+        250,
+        500,
+        1000,
+        2000,
+        5000
+    ]
+}
+```
+
+### Find the smallest oder size for an order with provided Packs
+`Request:`
+
+```curl
+curl --location 'https://fulfillment-app-2ndro.ondigitalocean.app/packs' \
+--header 'Content-Type: application/json' \
+--data '{
+    "order": 1,
+    "packaging_sizes": [250, 500, 1000, 2000, 5000]
+}'
+```
+`Response:`
+```json
+
+[
+    {
+        "size": 250,
+        "quantity": 1
+    }
+]
+```
+
 
 
 
