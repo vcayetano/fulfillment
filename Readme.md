@@ -8,9 +8,9 @@
     An awesome project to find the smallest amount of items or the smallest package to fit a given amount of items.
     <br />
     <br />
-    <a href="https://packer-web-iota.vercel.app/">View Demo</a>
-     &middot;
     <a href="https://packer-web-iota.vercel.app/">Frontend</a>
+    &middot;
+    <a href="https://drive.google.com/file/d/1-fE7WagqDsspn4qi5lDqNOm1V52DQFRe/view?usp=sharing/">Video Demo</a>
      &middot;
     <a href="https://fulfillment-app-2ndro.ondigitalocean.app/">Backend API</a>
   </p>
