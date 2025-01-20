@@ -26,11 +26,11 @@ func (d *DefaultPacker) CalculateMinPacks(orderSize int, packageSizes []int) Pac
 	sort.Sort(sort.Reverse(sort.IntSlice(packageSizes)))
 
 	minPacks := initializeMinPacks(orderSize)
-	lastUsedPack := make([]int, orderSize+1)
+	packagePacks := make([]int, orderSize+1)
 
-	populateMinPacks(orderSize, packageSizes, minPacks, lastUsedPack)
+	populateMinPacks(orderSize, packageSizes, minPacks, packagePacks)
 
-	return reconstructSolution(orderSize, packageSizes, lastUsedPack)
+	return reconstructResults(orderSize, packageSizes, packagePacks)
 }
 
 // initializeMinPacks - initialize the minPacks array with the maximum value
@@ -46,8 +46,8 @@ func initializeMinPacks(orderQuantity int) []int {
 	return minPacks
 }
 
-// Populate the minPacks and lastUsedPack arrays using dynamic programming
-func populateMinPacks(orderQuantity int, packSizes []int, minPacks, lastUsedPack []int) {
+// populateMinPacks - populate the minPacks array with the minimum number of packs needed
+func populateMinPacks(orderQuantity int, packSizes []int, minPacks, packagePacks []int) {
 	for _, packSize := range packSizes {
 
 		for currentQuantity := packSize; currentQuantity <= orderQuantity; currentQuantity++ {
@@ -55,20 +55,20 @@ func populateMinPacks(orderQuantity int, packSizes []int, minPacks, lastUsedPack
 
 			if packQuantityIsNotMaxInt && minPacks[currentQuantity-packSize]+1 < minPacks[currentQuantity] {
 				minPacks[currentQuantity] = minPacks[currentQuantity-packSize] + 1
-				lastUsedPack[currentQuantity] = packSize
+				packagePacks[currentQuantity] = packSize
 			}
 		}
 	}
 }
 
-// Reconstruct the solution from the lastUsedPack array
-func reconstructSolution(orderQuantity int, packSizes []int, lastUsedPack []int) Packages {
+// reconstructResults - reconstruct the raw results
+func reconstructResults(orderQuantity int, packSizes []int, packagePacks []int) Packages {
 	result := make(map[int]int)
 	packages := Packages{}
 
 	remainingQuantity := orderQuantity
 	for remainingQuantity > 0 {
-		packSize := lastUsedPack[remainingQuantity]
+		packSize := packagePacks[remainingQuantity]
 		if packSize == 0 {
 			smallestPackSize := packSizes[len(packSizes)-1]
 			result[smallestPackSize]++
