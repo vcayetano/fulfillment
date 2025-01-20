@@ -8,7 +8,7 @@
     An awesome project to find the smallest amount of items or the smallest package to fit a given amount of items.
     <br />
     <br />
-    <a href="https://packer-107eu2dou-victor-cayetanos-projects.vercel.app/">View Demo/ Interact with Frontendo</a>
+    <a href="https://packer-web-iota.vercel.app/">View Demo/ Interact with Frontendo</a>
    
   </p>
 </div>
@@ -140,9 +140,9 @@ ok      github.com/vcayetano/fulfillment/specifications (cached)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Acceptance Tests
-Testcontainers is used to run acceptance tests. The acceptance tests are written in Golang and uses the testcontainers library to run the tests in a containerized environment. The acceptance tests will test the REST API exposed by the backend.
+[Testcontainers](https://testcontainers.com/guides/getting-started-with-testcontainers-for-go/) is used to run acceptance tests. The acceptance tests are written in Golang and uses the testcontainers library to run the tests in a containerized environment. The acceptance tests will test the REST API exposed by the backend.
 
-1. Run the unit tests
+1. Run the acceptance tests
    ```sh
    make acceptance-test-http
    ```
