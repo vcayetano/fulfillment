@@ -9,12 +9,6 @@ type DefaultPacker struct {
 	//packSizes []int
 }
 
-//func NewPacker(availablePack []int) Packer {
-//	return &DefaultPacker{
-//		packSizes: availablePack,
-//	}
-//}
-
 // CalculateMinPacks - Calculate the minimum number of packs needed to fulfill the order
 func (d *DefaultPacker) CalculateMinPacks(orderSize int, packageSizes []int) Packages {
 
@@ -37,6 +31,7 @@ func (d *DefaultPacker) CalculateMinPacks(orderSize int, packageSizes []int) Pac
 func initializeMinPacks(orderQuantity int) []int {
 	minPacks := make([]int, orderQuantity+1)
 
+	// initialize the minPacks array with the maximum value - MaxInt32 or MaxInt64 depending on intSize.
 	for i := 1; i <= orderQuantity; i++ {
 		minPacks[i] = math.MaxInt
 	}
@@ -50,11 +45,15 @@ func initializeMinPacks(orderQuantity int) []int {
 func populateMinPacks(orderQuantity int, packSizes []int, minPacks, packagePacks []int) {
 	for _, packSize := range packSizes {
 
+		// iterate through the pack sizes and calculate the minimum number of packs needed
 		for currentQuantity := packSize; currentQuantity <= orderQuantity; currentQuantity++ {
-			packQuantityIsNotMaxInt := minPacks[currentQuantity-packSize] != math.MaxInt
+			// check if the current quantity to current pack difference is less than the max int
+			quantityPackSizeDifference := currentQuantity - packSize
+			packQuantityIsNotMaxInt := minPacks[quantityPackSizeDifference] != math.MaxInt
 
-			if packQuantityIsNotMaxInt && minPacks[currentQuantity-packSize]+1 < minPacks[currentQuantity] {
-				minPacks[currentQuantity] = minPacks[currentQuantity-packSize] + 1
+			// if the current quantity is less than the max int and the current quantity is less than the current min pack
+			if packQuantityIsNotMaxInt && minPacks[quantityPackSizeDifference]+1 < minPacks[currentQuantity] {
+				minPacks[currentQuantity] = minPacks[quantityPackSizeDifference] + 1
 				packagePacks[currentQuantity] = packSize
 			}
 		}
@@ -67,8 +66,10 @@ func reconstructResults(orderQuantity int, packSizes []int, packagePacks []int) 
 	packages := Packages{}
 
 	remainingQuantity := orderQuantity
+	// iterate through the packagePacks array and reconstruct the results
 	for remainingQuantity > 0 {
 		packSize := packagePacks[remainingQuantity]
+		//
 		if packSize == 0 {
 			smallestPackSize := packSizes[len(packSizes)-1]
 			result[smallestPackSize]++
