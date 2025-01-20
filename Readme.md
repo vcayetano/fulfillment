@@ -62,7 +62,7 @@ The project is divided into two parts:
 2. A frontend written in Next.js that consumes the REST API and provides a simple UI to interact with the backend.
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#smallest-packageitems-finder">back to top</a>)</p>
 
 
 
@@ -72,7 +72,7 @@ The project is divided into two parts:
 * [![React][React.js]][React-url]
 * Golang
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#smallest-packageitems-finder">back to top</a>)</p>
 
 ## Rest API Endpoints
 The backend exposes the following REST API endpoints:
@@ -135,7 +135,7 @@ curl --location 'https://fulfillment-app-2ndro.ondigitalocean.app/packs' \
    make run
    ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#smallest-packageitems-finder">back to top</a>)</p>
 
 ### Unit Tests
 
@@ -188,7 +188,7 @@ ok      github.com/vcayetano/fulfillment/specifications (cached)
 ```
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#smallest-packageitems-finder">back to top</a>)</p>
 
 ### Acceptance Tests
 [Testcontainers](https://testcontainers.com/guides/getting-started-with-testcontainers-for-go/) is used to run acceptance tests. The acceptance tests are written in Golang and uses the testcontainers library to run the tests in a containerized environment. The acceptance tests will test the REST API exposed by the backend.
@@ -282,7 +282,7 @@ ok      github.com/vcayetano/fulfillment/cmd/httpserver/tests   21.871s
 
 ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#smallest-packageitems-finder">back to top</a>)</p>
 
 ### Build Logs (Backend - Golang)
 ```logs
