@@ -8,11 +8,8 @@
     An awesome project to find the smallest amount of items or the smallest package to fit a given amount of items.
     <br />
     <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
-    &middot;
-    <a href="https://github.com/github_username/repo_name/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
-    &middot;
-    <a href="https://github.com/github_username/repo_name/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+    <a href="https://packer-107eu2dou-victor-cayetanos-projects.vercel.app/">View Demo/ Interact with Frontendo</a>
+   
   </p>
 </div>
 
@@ -236,7 +233,127 @@ ok      github.com/vcayetano/fulfillment/cmd/httpserver/tests   21.871s
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+### Build Logs (Backend - Golang)
+```logs
+[fulfillment] [2025-01-20 13:43:14] ╭──────────── git repo clone ───────────╼
+[fulfillment] [2025-01-20 13:43:14] │  › fetching app source code
+[fulfillment] [2025-01-20 13:43:14] │ => Selecting branch "main"
+[fulfillment] [2025-01-20 13:43:14] │ => Checking out commit "9dbd5ab4eb3f409bd3315ac6890c49b580f21ef7"
+[fulfillment] [2025-01-20 13:43:14] │ 
+[fulfillment] [2025-01-20 13:43:14] │  ✔ cloned repo to /.app_platform_workspace
+[fulfillment] [2025-01-20 13:43:14] ╰────────────────────────────────────────╼
+[fulfillment] [2025-01-20 13:43:14] 
+[fulfillment] [2025-01-20 13:43:15] ╭──────────── dockerfile build ───────────╼
+[fulfillment] [2025-01-20 13:43:15] │  › using dockerfile /.app_platform_workspace/Dockerfile
+[fulfillment] [2025-01-20 13:43:15] │  › using build context /.app_platform_workspace//
+[fulfillment] [2025-01-20 13:43:15] │ 
+[fulfillment] [2025-01-20 13:43:15] │ INFO[0000] Retrieving image manifest golang:1.23-alpine 
+[fulfillment] [2025-01-20 13:43:15] │ INFO[0000] Retrieving image library/golang:1.23-alpine from registry mirror <registry-uri-0> 
+[fulfillment] [2025-01-20 13:43:15] │ INFO[0000] Retrieving image manifest golang:1.23-alpine 
+[fulfillment] [2025-01-20 13:43:15] │ INFO[0000] Returning cached image manifest              
+[fulfillment] [2025-01-20 13:43:15] │ INFO[0000] Built cross stage deps: map[]                
+[fulfillment] [2025-01-20 13:43:15] │ INFO[0000] Retrieving image manifest golang:1.23-alpine 
+[fulfillment] [2025-01-20 13:43:15] │ INFO[0000] Returning cached image manifest              
+[fulfillment] [2025-01-20 13:43:15] │ INFO[0000] Retrieving image manifest golang:1.23-alpine 
+[fulfillment] [2025-01-20 13:43:15] │ INFO[0000] Returning cached image manifest              
+[fulfillment] [2025-01-20 13:43:15] │ INFO[0000] Executing 0 build triggers                   
+[fulfillment] [2025-01-20 13:43:15] │ INFO[0000] Building stage 'golang:1.23-alpine' [idx: '0', base-idx: '-1'] 
+[fulfillment] [2025-01-20 13:43:15] │ INFO[0000] Checking for cached layer <registry-uri-1> 
+[fulfillment] [2025-01-20 13:43:15] │ INFO[0000] No cached layer found for cmd RUN go mod download 
+[fulfillment] [2025-01-20 13:43:15] │ INFO[0000] Unpacking rootfs as cmd COPY go.mod ./ requires it. 
+[fulfillment] [2025-01-20 13:43:20] │ INFO[0005] Initializing snapshotter ...                 
+[fulfillment] [2025-01-20 13:43:20] │ INFO[0005] Taking snapshot of full filesystem...        
+[fulfillment] [2025-01-20 13:43:21] │ INFO[0006] WORKDIR /app                                 
+[fulfillment] [2025-01-20 13:43:21] │ INFO[0006] Cmd: workdir                                 
+[fulfillment] [2025-01-20 13:43:21] │ INFO[0006] Changed working directory to /app            
+[fulfillment] [2025-01-20 13:43:21] │ INFO[0006] Creating directory /app with uid -1 and gid -1 
+[fulfillment] [2025-01-20 13:43:21] │ INFO[0006] Taking snapshot of files...                  
+[fulfillment] [2025-01-20 13:43:21] │ INFO[0006] COPY go.mod ./                               
+[fulfillment] [2025-01-20 13:43:21] │ INFO[0006] Taking snapshot of files...                  
+[fulfillment] [2025-01-20 13:43:21] │ INFO[0006] RUN go mod download                          
+[fulfillment] [2025-01-20 13:43:22] │ INFO[0006] Cmd: /bin/sh                                 
+[fulfillment] [2025-01-20 13:43:22] │ INFO[0006] Args: [-c go mod download]                   
+[fulfillment] [2025-01-20 13:43:22] │ INFO[0006] Running: [/bin/sh -c go mod download]        
+[fulfillment] [2025-01-20 13:43:24] │ INFO[0009] Taking snapshot of files...                  
+[fulfillment] [2025-01-20 13:43:31] │ INFO[0016] Pushing layer <registry-uri-2> to cache now 
+[fulfillment] [2025-01-20 13:43:31] │ INFO[0016] Pushing image to <registry-uri-3> 
+[fulfillment] [2025-01-20 13:43:32] │ INFO[0017] COPY . .                                     
+[fulfillment] [2025-01-20 13:43:32] │ INFO[0017] Taking snapshot of files...                  
+[fulfillment] [2025-01-20 13:43:32] │ INFO[0017] RUN go build -o svr cmd/httpserver/*.go      
+[fulfillment] [2025-01-20 13:43:32] │ INFO[0017] Cmd: /bin/sh                                 
+[fulfillment] [2025-01-20 13:43:32] │ INFO[0017] Args: [-c go build -o svr cmd/httpserver/*.go] 
+[fulfillment] [2025-01-20 13:43:32] │ INFO[0017] Running: [/bin/sh -c go build -o svr cmd/httpserver/*.go] 
+[fulfillment] [2025-01-20 13:43:43] │ INFO[0028] Taking snapshot of files...                  
+[fulfillment] [2025-01-20 13:43:43] │ INFO[0028] Pushed <registry-uri-4> 
+[fulfillment] [2025-01-20 13:43:45] │ INFO[0029] Pushing layer <registry-uri-5> to cache now 
+[fulfillment] [2025-01-20 13:43:45] │ INFO[0029] Pushing image to <registry-uri-6> 
+[fulfillment] [2025-01-20 13:43:45] │ INFO[0029] CMD [ "./svr" ]                              
+[fulfillment] [2025-01-20 13:43:45] │ INFO[0029] No files changed in this command, skipping snapshotting. 
+[fulfillment] [2025-01-20 13:43:54] │ INFO[0039] Pushed <registry-uri-7> 
+[fulfillment] [2025-01-20 13:43:54] │ INFO[0039] Pushing image to <image-8> 
+[fulfillment] [2025-01-20 13:44:12] │ INFO[0057] Pushed <registry-uri-9> 
+[fulfillment] [2025-01-20 13:44:12] │ 
+[fulfillment] [2025-01-20 13:44:12] │  ✔ built and uploaded app container image to DOCR
+[fulfillment] [2025-01-20 13:44:12] ╰──────────────────────────────────────────╼
+[fulfillment] [2025-01-20 13:44:12] 
+[fulfillment] [2025-01-20 13:44:12]  ✔  build complete 
+[fulfillment] [2025-01-20 13:44:12] 
 
+
+### Build Logs (Frontend - Next.js)
+```logs
+[08:01:48.817] Running build in Washington, D.C., USA (East) – iad1
+[08:01:48.909] Cloning github.com/vcayetano/packer-web (Branch: main, Commit: f98424c)
+[08:01:49.114] Cloning completed: 205.168ms
+[08:01:52.694] Restored build cache from previous deployment (8ur99gZ5FqL7WWoYpb657xC6kvoN)
+[08:01:52.765] Running "vercel build"
+[08:01:53.431] Vercel CLI 39.3.0
+[08:01:53.735] Installing dependencies...
+[08:01:55.153] 
+[08:01:55.153] up to date in 1s
+[08:01:55.153] 
+[08:01:55.153] 154 packages are looking for funding
+[08:01:55.153]   run `npm fund` for details
+[08:01:55.190] Detected Next.js version: 15.1.5
+[08:01:55.194] Running "npm run build"
+[08:01:55.320] 
+[08:01:55.320] > nextjs@0.1.0 build
+[08:01:55.320] > next build
+[08:01:55.320] 
+[08:01:56.131]    ▲ Next.js 15.1.5
+[08:01:56.131] 
+[08:01:56.156]    Creating an optimized production build ...
+[08:02:04.298]  ✓ Compiled successfully
+[08:02:04.302]    Linting and checking validity of types ...
+[08:02:08.056]    Collecting page data ...
+[08:02:10.594]    Generating static pages (0/5) ...
+[08:02:11.417]    Generating static pages (1/5) 
+[08:02:11.417]    Generating static pages (2/5) 
+[08:02:11.417]    Generating static pages (3/5) 
+[08:02:11.417]  ✓ Generating static pages (5/5)
+[08:02:11.673]    Finalizing page optimization ...
+[08:02:11.680]    Collecting build traces ...
+[08:02:18.402] 
+[08:02:18.415] Route (app)                              Size     First Load JS
+[08:02:18.415] ┌ ○ /                                    34.4 kB         170 kB
+[08:02:18.415] └ ○ /_not-found                          979 B           106 kB
+[08:02:18.415] + First Load JS shared by all            105 kB
+[08:02:18.415]   ├ chunks/4bd1b696-1c20c52a7d48565d.js  52.9 kB
+[08:02:18.415]   ├ chunks/517-dd204da98124a509.js       50.5 kB
+[08:02:18.415]   └ other shared chunks (total)          1.91 kB
+[08:02:18.415] 
+[08:02:18.415] 
+[08:02:18.416] ○  (Static)  prerendered as static content
+[08:02:18.416] 
+[08:02:18.558] Traced Next.js server files in: 82.903ms
+[08:02:18.671] Created all serverless functions in: 112.465ms
+[08:02:18.680] Collected static files (public/, static/, .next/static): 4.884ms
+[08:02:18.713] Build Completed in /vercel/output [25s]
+[08:02:18.861] Deploying outputs...
+[08:02:28.426] 
+[08:02:28.716] Deployment completed
+[08:02:35.901] Uploading build cache [127.82 MB]...
+```
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
@@ -267,4 +384,3 @@ ok      github.com/vcayetano/fulfillment/cmd/httpserver/tests   21.871s
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com # fulfillment
